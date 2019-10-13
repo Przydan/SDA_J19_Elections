@@ -1,11 +1,13 @@
 package pl.sda.elections.model;
 
+
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
-public class Vote {
+@Getter
+public class CandidateList {
     private Long id;
     private Long candidateId;
-    private Long electionsId;
-
+    private Long ListId;
 }
