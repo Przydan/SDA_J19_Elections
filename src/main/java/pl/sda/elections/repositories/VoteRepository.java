@@ -29,21 +29,12 @@ public class VoteRepository {
             votes = votesFromFile.stream()
                     .map(x -> new MapToVoteAdapter(x))
                     .collect(Collectors.toList());
-        }catch (Exception e) {
+        } catch (Exception e) {
             this.votes = new ArrayList<>();
         }
         currentId = findMaxId(votes);
     }
 
-    private Long findMaxId(List<Vote> votes) {
-        Long maxId = Long.MIN_VALUE;
-        for (Vote vote : votes) {
-            if (vote.getId() > maxId) {
-                maxId = vote.getId();
-            }
-        }
-        return maxId;
-    }
 
     public Vote save(Vote vote) {
         FileWriterFactory writerFactory = new FileWriterFactory();
@@ -56,7 +47,19 @@ public class VoteRepository {
                 .collect(Collectors.toList());
 
         writer.write(dataToSave, filePath);
-        return  vote;
+        return vote;
+    }
+
+    
+
+    private Long findMaxId(List<Vote> votes) {
+        Long maxId = Long.MIN_VALUE;
+        for (Vote vote : votes) {
+            if (vote.getId() > maxId) {
+                maxId = vote.getId();
+            }
+        }
+        return maxId;
     }
 
     private Map<String, Object> objToMap(Vote vote) {
