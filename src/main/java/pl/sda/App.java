@@ -1,12 +1,14 @@
 package pl.sda;
 
+import pl.sda.elections.ElectionFacade;
+import pl.sda.elections.model.Vote;
+
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        System.out.println("test");
-        System.out.println("test2 ");
+        ElectionFacade electionFacade = new ElectionFacade();
+        electionFacade.vote(new Vote(1L,1L));
     }
 }
