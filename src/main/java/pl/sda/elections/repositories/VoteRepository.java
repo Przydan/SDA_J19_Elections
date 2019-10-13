@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class VoteRepository {
 
-    private String filePath = "/home/michal/SDA/Java19/Projekty/SDA_J19_Elections/src/main/resources/votes.csv";
+    private String filePath = "C:\\Users\\Dell\\Documents\\IntelllyJ - projects\\mediumLevCode_22.09\\m.basinski\\SDA_J19_Elections\\src\\main\\resorces\\votes.csv";
 
     private Long currentId;
 
