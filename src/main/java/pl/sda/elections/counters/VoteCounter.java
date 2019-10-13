@@ -1,4 +1,4 @@
-package pl.sda.elections.counter;
+package pl.sda.elections.counters;
 
 public class VoteCounter {
 }
