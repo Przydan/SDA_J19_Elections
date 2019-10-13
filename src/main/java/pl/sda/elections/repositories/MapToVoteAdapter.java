@@ -7,27 +7,27 @@ import java.util.Map;
 public class MapToVoteAdapter extends Vote {
     private Map<String, Object> votesRaw;
 
-    public MapToVoteAdapter (Map<String, Object> votesRaw) {
+    public MapToVoteAdapter(Map<String, Object> votesRaw) {
         this.votesRaw = votesRaw;
     }
 
     @Override
-    public void setId(Long id) {
-        super.setId(id);
+    public Long getId() {
+        return Long.parseLong( votesRaw.get("id").toString());
     }
 
     @Override
-    public Long getId() {
-        return (Long) votesRaw.get("id");
+    public void setId(Long id) {
+        votesRaw.put("id", id);
     }
 
     @Override
     public Long getCandidateId() {
-        return super.getCandidateId();
+        return  Long.parseLong(votesRaw.get("candidateId").toString());
     }
 
     @Override
     public Long getElectionsId() {
-        return null;
+        return Long.parseLong(votesRaw.get("electionsId").toString());
     }
 }

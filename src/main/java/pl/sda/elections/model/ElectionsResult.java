@@ -5,7 +5,7 @@ import java.util.Map;
 public class ElectionsResult {
     private Long id;
     private Long electionsId;
-    Map<Long, Long> committeeMandates;
+    private Map<Long, Long> committeeMandates;
 
     public ElectionsResult(Long id, Long electionsId, Map<Long, Long> committeeMandates) {
         this.id = id;

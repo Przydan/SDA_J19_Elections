@@ -1,8 +1,14 @@
 package pl.sda.elections.model;
 
-import java.time.LocalDate;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@Getter
 public class Vote {
+
+    @Setter
     private Long id;
     private Long candidateId;
     private Long electionsId;
@@ -10,24 +16,5 @@ public class Vote {
     public Vote(Long candidateId, Long electionsId) {
         this.candidateId = candidateId;
         this.electionsId = electionsId;
-    }
-
-    public Vote() {
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getCandidateId() {
-        return candidateId;
-    }
-
-    public Long getElectionsId() {
-        return electionsId;
     }
 }

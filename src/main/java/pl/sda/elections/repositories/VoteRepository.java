@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 
 public class VoteRepository {
 
-    private Long currentId;
+    private String filePath = "/home/michal/SDA/Java19/Projekty/SDA_J19_Elections/src/main/resources/votes.csv";
 
-    private String filePath = "C:\\Users\\Dell\\Documents\\IntelllyJ - projects\\mediumLevCode_22.09\\m.basinski\\SDA_J19_Elections\\src\\main\\resources\\votes.csv";
+    private Long currentId;
 
     private List<Vote> votes;
 
@@ -26,7 +26,7 @@ public class VoteRepository {
         try {
             List<Map<String, Object>> votesFromFile = db.read(filePath);
 
-            votes = votesFromFile.stream()
+            this.votes = votesFromFile.stream()
                     .map(x -> new MapToVoteAdapter(x))
                     .collect(Collectors.toList());
         } catch (Exception e) {
@@ -35,7 +35,6 @@ public class VoteRepository {
         currentId = findMaxId(votes);
     }
 
-
     public Vote save(Vote vote) {
         FileWriterFactory writerFactory = new FileWriterFactory();
         SDAFileWriter writer = writerFactory.produce(filePath);
@@ -43,14 +42,15 @@ public class VoteRepository {
 
         vote.setId(currentId);
         votes.add(vote);
-        List<Map<String, Object>> dataToSave = votes.stream().map(x -> objToMap(x))
-                .collect(Collectors.toList());
-
+        List<Map<String, Object>> dataToSave
+                = votes.stream().map(x -> objToMap(x)).collect(Collectors.toList());
         writer.write(dataToSave, filePath);
         return vote;
     }
 
-    
+    public List<Vote> getVotes() {
+        return this.votes;
+    }
 
     private Long findMaxId(List<Vote> votes) {
         Long maxId = Long.MIN_VALUE;

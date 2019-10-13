@@ -8,7 +8,7 @@ public class ElectionFacade {
 
     private VoteRepository voteRepository = new VoteRepository();
 
-    public boolean vote(Vote vote) {
+    public boolean vote(Vote vote){
         Vote savedVote = voteRepository.save(vote);
         return savedVote.getId() != null;
     }
