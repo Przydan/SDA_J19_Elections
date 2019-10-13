@@ -7,7 +7,6 @@ import java.util.List;
 
 public class VotingListRepository {
     private List<VotingList> votingLists = new ArrayList<>();
-    //private Long currentId = 0L;
 
     public VotingListRepository() {
         votingLists.add(new VotingList(0L, 1L, "Komitet wyborczy Java", 1L));
@@ -15,7 +14,4 @@ public class VotingListRepository {
         votingLists.add(new VotingList(2L, 1L, "Komitet wyborczy Python", 3L));
         votingLists.add(new VotingList(3L, 1L, "Komitet wyborczy PHP", 4L));
     }
-
-
-
 }

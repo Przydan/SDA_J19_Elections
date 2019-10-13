@@ -3,10 +3,11 @@ package pl.sda.elections.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @Getter
-public class CandidateList {
+public class Elections {
     private Long id;
-    private Long candidateId;
-    private Long listId;
+    private LocalDate date;
 }
