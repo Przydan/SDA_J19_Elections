@@ -28,6 +28,6 @@ public class MapToVoteAdapter extends Vote {
 
     @Override
     public Long getElectionsId() {
-        return super.getElectionsId();
+        return null;
     }
 }
